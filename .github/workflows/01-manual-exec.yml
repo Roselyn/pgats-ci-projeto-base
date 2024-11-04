@@ -12,7 +12,7 @@ jobs:
   # descrição dos jobs
   e2e-tests:
     # maquina onde vai executar o job
-    runs-on: ['ubunto-latest']
+    runs-on: ["ubunto-latest"]
     # passo a passo das ececuções do job
     steps:
       - uses: actions/checkout@v4
