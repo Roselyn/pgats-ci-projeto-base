@@ -28,7 +28,10 @@ jobs:
         run: yarn playwright install
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
+      # aqui temos a subida de artefato e uso de uma expressão
+      # passed, failed, cancelled
       - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
         with:
           name: relatorio-de-testes
           path: ./playwright-report
