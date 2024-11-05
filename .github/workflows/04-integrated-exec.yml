@@ -27,6 +27,7 @@ jobs:
         run: yarn lint
   unit:
     runs-on: ubuntu-latest
+    needs: [inspection]
     steps:
       - uses: actions/checkout@v4
       - name: Instalando yarn
@@ -38,6 +39,7 @@ jobs:
 
   e2e-tests: # descrição do job
     runs-on: ubuntu-latest # maquina onde vai executar o job
+    needs: [unit]
     steps: # passo a passo das ececuções do job
       - uses: actions/checkout@v4 # precisa fazer chekout do fonte
       - name: Instalando yarn
@@ -59,3 +61,6 @@ jobs:
         with:
           name: relatorio-de-testes
           path: ./playwright-report
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [e2e-tests]
