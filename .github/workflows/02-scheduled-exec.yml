@@ -7,7 +7,7 @@ name: 'Execução Agendada'
   # gatilho de execução agendada = schedule
 on:
   schedule:
-    - cron: '23 11 * * 1'
+    - cron: '35 11 * * 1'
 
 jobs:
   # descrição dos jobs
@@ -15,6 +15,9 @@ jobs:
     # maquina onde vai executar o job
     runs-on: ubuntu-latest
     # passo a passo das ececuções do job
+    # set de timeZone
+    env: 
+      TZ:  America/Sao_Paulo
 
     steps:
       - uses: actions/checkout@v4
