@@ -7,7 +7,7 @@ name: 'Execução Agendada'
   # gatilho de execução agendada = schedule
 on:
   schedule:
-    - cron: '36 8 * * 1'
+    - cron: '46 8 * * 1-5'
 
 jobs:
   # descrição dos jobs
