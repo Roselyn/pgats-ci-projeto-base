@@ -14,7 +14,6 @@ on:
   #   e2e
   #     build
   # deploy
-
 jobs:
   inspection: # descrição do job
     runs-on: ubuntu-latest # maquina onde vai executar o job
@@ -26,6 +25,16 @@ jobs:
         run: yarn
       - name: Pronização de código - lint
         run: yarn lint
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalando yarn
+        run: npm install -g yarn
+      - name: Instalando Dependencias
+        run: yarn
+      - name: Teste de unidade
+        run: yarn run test
 
   e2e-tests: # descrição do job
     runs-on: ubuntu-latest # maquina onde vai executar o job
