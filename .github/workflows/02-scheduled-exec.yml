@@ -7,7 +7,7 @@ name: 'Execução Agendada'
 # gatilho de execução agendada = schedule
 on:
   schedule:
-    - cron: '40 17 * * *'
+    - cron: '40 23 * * 2'    # por 3 horas a frente da atual br
 
 jobs:
   # descrição dos jobs
