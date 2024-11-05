@@ -4,7 +4,7 @@
 name: 'Execução Agendada'
 
 # Triggers ou gatilhos de execução
-  # gatilho de execução agendada = schedule
+# gatilho de execução agendada = schedule
 on:
   schedule:
     - cron: '10 6 * * 1-5'
@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     # passo a passo das ececuções do job
     # set de timeZone
-    #env: 
-      #TZ:  America/Sao_Paulo
+    #env:
+    #TZ:  America/Sao_Paulo
 
     steps:
       - uses: actions/checkout@v4
@@ -34,4 +34,3 @@ jobs:
         with:
           name: relatorio-de-testes
           path: ./playwright-report
-

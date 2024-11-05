@@ -4,7 +4,7 @@
 name: 'Execução Integrada'
 
 # Triggers ou gatilhos de execução
-  # gatilho de execução manual = workflow_dispatch
+# gatilho de execução manual = workflow_dispatch
 on:
   workflow_dispatch:
   # inspeção
@@ -16,9 +16,9 @@ on:
   # deploy
 
 jobs:
-  inspection:
-    runs-on: ubuntu-latest
-    steps:
+  inspection: # descrição do job
+    runs-on: ubuntu-latest # maquina onde vai executar o job
+    steps: # passo a passo das ececuções do job
       - uses: actions/checkout@v4
       - name: Instalando yarn
         run: npm install -g yarn
@@ -26,18 +26,11 @@ jobs:
         run: yarn
       - name: Pronização de código - lint
         run: yarn lint
-        
-  # descrição dos jobs
-  e2e-tests:
-    # maquina onde vai executar o job
-    runs-on: ubuntu-latest
-    # passo a passo das ececuções do job
 
-    steps:
-      - uses: actions/checkout@v4
-      #- uses: actions/setup-node@v4
-      #  with:
-      #    node-version: lts/*
+  e2e-tests: # descrição do job
+    runs-on: ubuntu-latest # maquina onde vai executar o job
+    steps: # passo a passo das ececuções do job
+      - uses: actions/checkout@v4 # precisa fazer chekout do fonte
       - name: Instalando yarn
         run: npm install -g yarn
       - name: Instalando dependências
@@ -53,4 +46,3 @@ jobs:
         with:
           name: relatorio-de-testes
           path: ./playwright-report
-
