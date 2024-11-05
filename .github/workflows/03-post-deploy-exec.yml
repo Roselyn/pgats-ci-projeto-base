@@ -1,13 +1,15 @@
-# CI de Nível 012 - Disparo atomático em períodos definidos
+# CI de Nível 03 - Disparo atomático sempre que outro for concluído, como deploy
 
 # nome que vai aparecer na execução de pipe
-name: 'Execução Agendada'
+name: 'Execução por Deploy'
 
 # Triggers ou gatilhos de execução
-  # gatilho de execução agendada = schedule
+  # gatilho de execução após outro workflow = workflow_run
 on:
-  schedule:
-    - cron: '46 8 * * 1-5'
+  workflow_run:
+    workflows: ['Execução Manual']
+    types:
+      - completed
 
 jobs:
   # descrição dos jobs

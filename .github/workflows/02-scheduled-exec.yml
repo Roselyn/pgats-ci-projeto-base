@@ -1,4 +1,4 @@
-# CI de Nível 012 - Disparo atomático em períodos definidos
+# CI de Nível 02 - Disparo atomático em períodos definidos
 
 # nome que vai aparecer na execução de pipe
 name: 'Execução Agendada'
