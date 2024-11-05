@@ -4,7 +4,7 @@
 name: 'Execução por Deploy'
 
 # Triggers ou gatilhos de execução
-  # gatilho de execução após outro workflow = workflow_run
+# gatilho de execução após outro workflow = workflow_run
 on:
   workflow_run:
     workflows: ['Execução Manual']
@@ -17,10 +17,7 @@ jobs:
     # maquina onde vai executar o job
     runs-on: ubuntu-latest
     # passo a passo das ececuções do job
-    # set de timeZone
-    env: 
-      TZ:  America/Sao_Paulo
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - name: Instalando yarn
@@ -36,4 +33,3 @@ jobs:
         with:
           name: relatorio-de-testes
           path: ./playwright-report
-
