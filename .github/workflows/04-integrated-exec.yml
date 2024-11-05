@@ -68,3 +68,5 @@ jobs:
     needs: [e2e-tests]
     steps:
       - run: echo 'Step Deploy'
+      - name: Show Date and Time
+        run: Date
