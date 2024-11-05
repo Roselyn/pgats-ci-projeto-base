@@ -46,8 +46,12 @@ jobs:
         run: yarn
       - name: Instalando PlayWright
         run: yarn playwright install
+      - name: Subir App local
+        run: yarn start & # & para ficar em segundo plano
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
+        env:
+          URL: 'http://localhost:3000' # variavel ambiente para pegar sev local
       # aqui temos a subida de artefato e uso de uma expressão
       # passed, failed, cancelled
       - uses: actions/upload-artifact@v4
